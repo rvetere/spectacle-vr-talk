@@ -98,7 +98,8 @@ const customTheme = {
   },
   components: {
     quote: {
-      borderLeft: `1px solid ${colors.primary}`
+      borderLeft: `1px solid ${colors.primary}`,
+      fontWeight: "normal"
     },
     codePane: {
       pre: {
