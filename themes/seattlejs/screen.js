@@ -3,7 +3,6 @@
 const brand = {
   // grayscale
   darkGray: "#373534",
-  white: "#f1f1f2",
   // seattlejs style guide
   navy: "#00002c",
   blue: "#002f89",
@@ -16,8 +15,7 @@ const colors = {
   primary: brand.navy,
   secondary: brand.blue,
   tertiary: brand.green,
-  quartenary: brand.teal,
-  white: brand.white
+  quartenary: brand.teal
 };
 
 const fonts = {
@@ -107,8 +105,6 @@ const customTheme = {
         height: "100%"
       },
       code: {
-        color: brand.darkGray,
-        fontFamily: fonts.monospace
       }
     },
     code: {

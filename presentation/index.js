@@ -3,6 +3,7 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
+  Appear,
   BlockQuote,
   Cite,
   Deck,
@@ -16,8 +17,10 @@ import {
   List,
   Quote,
   Slide,
-  Text
+  Text,
+  CodePane
 } from "spectacle";
+import CodeSlide from "spectacle-code-slide";
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
@@ -99,11 +102,6 @@ export default class Presentation extends React.Component {
       backgroundSize: "105% auto"
     };
 
-    const sponsor = {
-      display: "block",
-      marginBottom: "1.5em"
-    };
-
     const agendaSlide = (
       <Slide style={skylineBg}>
         <Heading size={3}>Agenda</Heading>
@@ -117,10 +115,10 @@ export default class Presentation extends React.Component {
     );
 
     const whatIsVRSlide1 = (
-      <Slide style={skylineBg}>
+      <Slide>
         <Heading size={6}>What is Virtual Reality (VR)?</Heading>
         <Text textSize=".8em" margin="auto auto 5em auto">
-          <bold>Virtual Reality (VR)</bold> is a computer technology that uses Virtual reality headsets,
+          <strong>Virtual Reality (VR)</strong> is a computer technology that uses Virtual reality headsets,
           to generate realistic images, sounds and other sensations that simulate a {"user's"} physical presence
           in a virtual environment.
         </Text>
@@ -138,7 +136,7 @@ export default class Presentation extends React.Component {
         <Layout>
           <Fill>
             <Text textSize=".8em" margin="auto auto 5em auto">
-              <bold>VR</bold> has gone a long way. Brave companies already tried it in the {"80's"}!
+              <strong>VR</strong> has gone a long way. Brave companies already tried it in the {"80's"}!
               <br/>
               <br/>
               <br/>
@@ -245,7 +243,7 @@ export default class Presentation extends React.Component {
         <List textAlign="center">
           <ListItem textSize="1em" margin="0 0 1em 0">The headset must track the exact position of the {"user's"} head - to actively match the perspective of the generated images</ListItem>
           <ListItem textSize="1em" margin="0 0 1em 0">Modern headsets/smartphones achieve this with sensors like gyros, accelerometers and magnetometers</ListItem>
-          <ListItem textSize="1em" margin="0 0 1em 0">From the input of the sensors to the output of the image, a latency of <bold>less than 3ms</bold> is needed or people will get motion sick!</ListItem>
+          <ListItem textSize="1em" margin="0 0 1em 0">From the input of the sensors to the output of the image, a latency of <strong>less than 3ms</strong> is needed or people will get motion sick!</ListItem>
         </List>
       </Slide>
     );
@@ -332,6 +330,68 @@ export default class Presentation extends React.Component {
       </Slide>
     );
 
+    const reactVRSlide1 = (
+      <Slide>
+        <Heading size={6}>What is React VR?</Heading>
+        <Quote textFont="monospace" textSize=".8em" margin="auto auto 2em auto">
+          React VR lets you build VR apps using only JavaScript. It uses the same design as React, letting you compose a rich VR world and UI from declarative components.
+        </Quote>
+        <List textAlign="center">
+          <Appear><ListItem textSize="1em" margin="0 0 1em 0">It encapsulates any complexity in custom React components</ListItem></Appear>
+          <Appear><ListItem textSize="1em" margin="0 0 1em 0">Internally it uses "Three.js" to support the lower-level WebVR and WebGL APIs</ListItem></Appear>
+          <Appear><ListItem textSize="1em" margin="0 0 1em 0">It comes with a handy command line tool 😍 <strong>npm i -g react-vr-cli</strong></ListItem></Appear>
+          <Appear><ListItem textSize="1em" margin="0 0 1em 0">Create a new project by simply running <strong>react-vr init WelcomeToVR</strong></ListItem></Appear>
+        </List>
+      </Slide>
+    );
+
+    const reactVRSlide2 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/welcome-example")}
+        ranges={[
+          { loc: [0, 36], title: "index.vr.js" },
+          { loc: [0, 1], title: "Importing React" },
+          { loc: [1, 10], title: "Import custom components of React VR" },
+          { loc: [11, 34], title: "The render method" },
+          { loc: [15, 16], title: "Panorama Image Background (Skybox)", note: "equirectangular images and videos are supported 💪" },
+          { loc: [16, 30], title: "A 3D Text Object" },
+          { loc: [35, 36], title: "Finally register the app", note: "React Native is used internally to bundle everything 📦" }
+        ]}
+      />
+    );
+
+    const reactVRSlide3 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/welcome-index-html")}
+        ranges={[
+          { loc: [0, 21], title: "index.html" },
+          { loc: [8, 9], title: "Import client.js" },
+          { loc: [11, 18], title: "Call init method of ReactVR" }
+        ]}
+      />
+    );
+
+    const reactVRSlide4 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/welcome-client-js")}
+        ranges={[
+          { loc: [0, 21], title: "index.html" },
+          { loc: [8, 9], title: "Instantiate your vr application" },
+          { loc: [16, 17], title: "Startup the application" },
+          { loc: [0, 21], title: "What is the output?" }
+        ]}
+      />
+    );
+
     return (
       <Deck
         progress="none"
@@ -361,67 +421,10 @@ export default class Presentation extends React.Component {
         {howVrWorks9}
         {howVrWorks10}
 
-        <Slide bgColor="white">
-          {this.renderSponsorHeading("Presenting Sponsor")}
-          <Image width="90%" src={images.logoFormidable} />
-        </Slide>
-        <Slide bgColor="white">
-          {this.renderSponsorHeading("Diamond Sponsor")}
-          <Image width="90%" src={images.logoMicrosoft} />
-        </Slide>
-        <Slide bgColor="white">
-          {this.renderSponsorHeading("Platinum Sponsor")}
-          <Image width="90%" src={images.logoAlexa} />
-        </Slide>
-        <Slide bgColor="white">
-          {this.renderSponsorHeading("Gold Sponsor")}
-          <Image width="50%" src={images.logoImdb} />
-        </Slide>
-        <Slide bgColor="white">
-          {this.renderSponsorHeading("Silver Sponsors")}
-          <Layout>
-            <Fill>
-              <Image style={sponsor} width="90%" src={images.logoZillow} />
-              <Image style={sponsor} width="90%" src={images.logoGalvanize} />
-            </Fill>
-            <Fill>
-              <Image style={sponsor} width="90%" src={images.logoAppSheet} />
-              <Image style={sponsor} width="90%" src={images.logoGoDaddy} />
-            </Fill>
-          </Layout>
-        </Slide>
-        <Slide bgColor="white">
-          {this.renderSponsorHeading("Community Sponsors")}
-          <Layout style={{ alignItems: "center" }}>
-            <Fill>
-              <Image style={sponsor} width="60%" src={images.logoNpm} />
-            </Fill>
-            <Fill>
-              <Image style={sponsor} width="95%" src={images.logoSendGrid} />
-            </Fill>
-            <Fill>
-              <Image style={sponsor} width="75%" src={images.logoIndeed} />
-            </Fill>
-          </Layout>
-          <Layout style={{ alignItems: "center" }}>
-            <Fill>
-              <Image style={sponsor} width="80%" src={images.logoSitepen} />
-            </Fill>
-            <Fill>
-              <Image style={sponsor} width="90%" src={images.logoOpenDoor} />
-            </Fill>
-            <Fill>
-              <Image style={sponsor} width="60%" src={images.logoSheCodesNow} />
-            </Fill>
-          </Layout>
-          <Layout>
-            <Fill />
-            <Fill>
-              <Image style={sponsor} width="80%" src={images.logoUnbounce} />
-            </Fill>
-            <Fill />
-          </Layout>
-        </Slide>
+        {reactVRSlide1}
+        {reactVRSlide2}
+        {reactVRSlide3}
+        {reactVRSlide4}
       </Deck>
     );
   }
