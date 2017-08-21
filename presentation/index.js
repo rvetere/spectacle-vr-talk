@@ -79,6 +79,11 @@ const howitworks = {
   webVr: require("../assets/howitworks/web-vr.jpg")
 };
 
+const advanced = {
+  one: require("../assets/advanced/one.gif"),
+  two: require("../assets/advanced/two.jpg")
+};
+
 preloader(images);
 
 export default class Presentation extends React.Component {
@@ -392,6 +397,114 @@ export default class Presentation extends React.Component {
       />
     );
 
+    const advancedVRSlide1 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/advanced-index")}
+        ranges={[
+          { loc: [0, 21], title: "Advanced example - index.vr.js" },
+          { loc: [13, 18], title: "Custom components" },
+          { loc: [125, 157] }
+        ]}
+      />
+    );
+
+    const advancedVRSlide2 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/advanced-world")}
+        ranges={[
+          { loc: [0, 12], title: "components/World.js" },
+          { loc: [10, 39] }
+        ]}
+      />
+    );
+
+    const advancedVRSlide3 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/advanced-asteroid")}
+        ranges={[
+          { loc: [0, 12], title: "components/Asteroid01.js" },
+          { loc: [7, 11], title: "Local state to handle animation" },
+          { loc: [14, 21], title: "The actual animation implementation" },
+          { loc: [24, 26], title: "Start the animation for x and y axis" },
+          { loc: [32, 40], title: "Animated.View helper of React VR" },
+          { loc: [40, 50], title: "Mesh helper to actually load 3D models", note: "React VR supports .obj (object) and .mtl (material) file formats to handle 3D models ☝️" }
+        ]}
+      />
+    );
+
+    const advancedVRSlide4 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/advanced-index")}
+        ranges={[
+          { loc: [125, 157] },
+          { loc: [130, 142], title: "Placing the cockpit statically" },
+          { loc: [143, 155], title: "Moving the whole world around us" },
+          { loc: [45, 55], title: "Endless animation loop", note: "We (the camera) and our cockpit are continuously flying trough space 🎉" }
+        ]}
+      />
+    );
+
+    const advancedVRSlide5 = (
+      <Slide>
+        <Heading size={6}>React VR: Buttons</Heading>
+        <Image width="100%" src={advanced.one} margin="0 auto 0 auto" />
+      </Slide>
+    );
+
+    const advancedVRSlide6 = (
+      <Slide>
+        <Heading size={6}>React VR: Buttons</Heading>
+        <Image width="100%" src={advanced.two} margin="0 auto 0 auto" />
+      </Slide>
+    );
+
+    const advancedVRSlide7 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/advanced-cockpit")}
+        ranges={[
+          { loc: [0, 12], title: "components/Cockpit.js" },
+          { loc: [21, 40], title: "Placing the move-left, move-right buttons" },
+          { loc: [40, 58] },
+          { loc: [60, 70], title: "Loading cockpit object + material" }
+        ]}
+      />
+    );
+
+    const advancedVRSlide8 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="jsx"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/advanced-index")}
+        ranges={[
+          { loc: [86, 95], title: "When we hover a button" },
+          { loc: [34, 42] },
+          { loc: [57, 80] }
+        ]}
+      />
+    );
+
+    const theEnd = (
+      <Slide style={skylineBg}>
+        <Heading size={1}>Fin</Heading>
+      </Slide>
+    );
+
     return (
       <Deck
         progress="none"
@@ -425,6 +538,17 @@ export default class Presentation extends React.Component {
         {reactVRSlide2}
         {reactVRSlide3}
         {reactVRSlide4}
+
+        {advancedVRSlide1}
+        {advancedVRSlide2}
+        {advancedVRSlide3}
+        {advancedVRSlide4}
+        {advancedVRSlide5}
+        {advancedVRSlide6}
+        {advancedVRSlide7}
+        {advancedVRSlide8}
+
+        {theEnd}
       </Deck>
     );
   }
