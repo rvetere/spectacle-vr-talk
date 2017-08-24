@@ -63,7 +63,9 @@ const whatisvr = {
   game: require("../assets/whatisvr/vr-gameplay.jpg"),
   void: require("../assets/whatisvr/the-void.png"),
   vrold1: require("../assets/whatisvr/vr-old1.jpg"),
-  vrold2: require("../assets/whatisvr/vr-old2.jpg")
+  vrold2: require("../assets/whatisvr/vr-old2.jpg"),
+  oculus: require("../assets/whatisvr/oculus.png"),
+  gear: require("../assets/whatisvr/gear-vr.png")
 };
 
 const howitworks = {
@@ -143,10 +145,10 @@ export default class Presentation extends React.Component {
         <Layout>
           <Fill>
             <Text textSize=".8em" margin="auto auto 5em auto">
-              <strong>VR</strong> has gone a long way. Brave companies already tried it in the {"80's"}!
-              <br/>
-              <br/>
-              <br/>
+              <strong>VR</strong> has gone a long way. Few companies already tried it in the {"80's"}!
+              <br />
+              <br />
+              <br />
             </Text>
 
             <Appear>
@@ -163,6 +165,20 @@ export default class Presentation extends React.Component {
           </Fill>
           <Fill>
             <Image width="90%" src={whatisvr.vrold1} margin="0 auto 0 auto" />
+          </Fill>
+        </Layout>
+      </Slide>
+    );
+
+    const whatIsVRSlide3 = (
+      <Slide>
+        <Heading size={6}>What is Virtual Reality (VR)?</Heading>
+        <Layout>
+          <Fill>
+            <Image width="90%" src={whatisvr.oculus} margin="0 auto 0 auto" />
+          </Fill>
+          <Fill>
+            <Image width="90%" src={whatisvr.gear} margin="0 auto 0 auto" />
           </Fill>
         </Layout>
       </Slide>
@@ -216,18 +232,15 @@ export default class Presentation extends React.Component {
               Pincushion Effect (On the Lense)
             </Text>
           </Fill>
+          <Appear>
           <Fill>
             <Image width="60%" src={howitworks.barrel} margin="0 auto 0 auto" />
             <Text textSize=".8em" margin="auto auto 5em auto">
               Barrel Distortion (On the image)
             </Text>
           </Fill>
+          </Appear>
         </Layout>
-        <Appear>
-          <Quote textSize=".8em" lineHeight="1.8em" margin="2em auto 2em auto">
-            By having a barrel distortion on the image, the pincushion effect of the lense is normalized - we see a clear, un-distorted image again but it appears much closer now trough the lenses.
-          </Quote>
-        </Appear>
       </Slide>
     );
 
@@ -328,7 +341,7 @@ export default class Presentation extends React.Component {
           What is WebVR?
         </Text>
         <Text textSize=".8em" margin="auto auto 5em auto" lineHeight="1.2em">
-          WebVR is an open standard that makes it possible to experience VR in your browser. The goal is to make it easier for everyone to get into VR experiences, no matter what device you have
+          WebVR is an open standard that makes it possible to experience VR in your browser.
         </Text>
 
         <Appear>
@@ -338,7 +351,7 @@ export default class Presentation extends React.Component {
         </Appear>
         <Appear>
           <Text textSize=".8em" margin="auto auto 5em auto" lineHeight="1.2em">
-            You need two things to experience WebVR: a headset and a compatible browser.
+            A headset and a compatible browser.
           </Text>
         </Appear>
         <br />
@@ -351,12 +364,10 @@ export default class Presentation extends React.Component {
     const reactVRSlide1 = (
       <Slide>
         <Heading size={6}>What is React VR?</Heading>
-        <Quote textFont="monospace" textSize=".8em" margin="auto auto 2em auto">
+        <Quote textSize=".8em" lineHeight="2em" margin="2em auto 2em auto">
           React VR lets you build VR apps using only JavaScript. It uses the same design as React, letting you compose a rich VR world and UI from declarative components.
         </Quote>
         <List textAlign="center">
-          <Appear><ListItem textSize="1em" margin="0 0 1em 0">It encapsulates any complexity in custom React components</ListItem></Appear>
-          <Appear><ListItem textSize="1em" margin="0 0 1em 0">Internally it uses "Three.js" to support the lower-level WebVR and WebGL APIs</ListItem></Appear>
           <Appear><ListItem textSize="1em" margin="0 0 1em 0">It comes with a handy command line tool 😍 <strong>npm i -g react-vr-cli</strong></ListItem></Appear>
           <Appear><ListItem textSize="1em" margin="0 0 1em 0">Create a new project by simply running <strong>react-vr init WelcomeToVR</strong></ListItem></Appear>
         </List>
@@ -512,21 +523,23 @@ export default class Presentation extends React.Component {
       />
     );
 
-    const lessonsLearned = (
+    const resources = (
       <Slide>
-        <Heading size={6}>Lessons Learned</Heading>
+        <Heading size={6}>Resources</Heading>
         <List textAlign="center">
-          <Appear><ListItem textSize="1em" margin="0 0 1em 0">There are nice resources of free 3D models</ListItem></Appear>
-          <Appear><ListItem textSize="1em" margin="0 0 1em 0">Basic 3D knowledge with apps like 3ds max, maya or blender is helpful</ListItem></Appear>
-          <Appear><ListItem textSize="1em" margin="0 0 1em 0">You could implement anything what Three.js can do already..</ListItem></Appear>
-          <Appear><ListItem textSize="1em" margin="0 0 1em 0">Performance is still poor with WebGL - you get better results with native apps (Unity3D, UDK)</ListItem></Appear>
+          <ListItem textSize="1em" margin="0 0 1em 0"><Link href="https://facebook.github.io/react-vr/docs/getting-started.html">→ Official Documentation</Link></ListItem>
+          <ListItem textSize="1em" margin="0 0 1em 0"><Link href="https://www.pluralsight.com/guides/front-end-javascript/getting-started-with-react-vr">→ "Earth & Moon" demo app and tutorial</Link></ListItem>
+          <ListItem textSize="1em" margin="0 0 1em 0"><Link href="https://www.flickr.com/search/?text=equirectangular">→ Flickr "equirectangular"</Link></ListItem>
+          <ListItem textSize="1em" margin="0 0 1em 0"><Link href="https://free3d.com/">→ Free 3D</Link></ListItem>
+          <ListItem textSize="1em" margin="0 0 1em 0"><Link href="http://smus.com/vr-lens-distortion/">→ VR Lens Distortion</Link></ListItem>
+          <ListItem textSize="1em" margin="0 0 1em 0"><Link href="https://egghead.io/courses/build-virtual-reality-experiences-using-react-vr">→ egghead.io course by Nik Graf</Link></ListItem>
         </List>
       </Slide>
     );
 
     const theEnd = (
       <Slide style={skylineBg}>
-        <Heading size={1}>Fin</Heading>
+        <Appear><Heading size={1}>Fin</Heading></Appear>
       </Slide>
     );
 
@@ -544,6 +557,7 @@ export default class Presentation extends React.Component {
 
         {whatIsVRSlide1}
         {whatIsVRSlide2}
+        {whatIsVRSlide3}
 
         {howVrWorks1}
         {howVrWorks2}
@@ -570,7 +584,6 @@ export default class Presentation extends React.Component {
         {advancedVRSlide5}
         {advancedVRSlide6}
         {advancedVRSlide7}
-        {advancedVRSlide8}
 
         {theEnd}
       </Deck>
