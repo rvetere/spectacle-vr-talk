@@ -86,6 +86,19 @@ const advanced = {
   two: require("../assets/advanced/two.jpg")
 };
 
+const whatisar = {
+  glass1: require("../assets/ar/google-glass-1.jpg"),
+  glass2: require("../assets/ar/google-glass-2.jpg"),
+  hololens1: require("../assets/ar/hololens-1.jpg"),
+  calibration1: require("../assets/ar/calibration-1.jpg"),
+  calibration2: require("../assets/ar/calibration-2.jpg"),
+  arkit: require("../assets/ar/arkit.jpg"),
+  arcore: require("../assets/ar/arcore.jpg"),
+  lightning: require("../assets/ar/lightning.gif"),
+  occlusion: require("../assets/ar/occlusion.gif"),
+  illumination: require("../assets/ar/illumination.gif")
+};
+
 preloader(images);
 
 export default class Presentation extends React.Component {
@@ -117,6 +130,7 @@ export default class Presentation extends React.Component {
           <ListItem margin="0 0 1em 0">How does it actually work?</ListItem>
           <ListItem margin="0 0 1em 0">What is React VR?</ListItem>
           <ListItem margin="0 0 1em 0">Dive into code/examples!</ListItem>
+          <ListItem margin="0 0 1em 0">What is Augmented Reality (AR)?</ListItem>
         </List>
       </Slide>
     );
@@ -537,6 +551,99 @@ export default class Presentation extends React.Component {
       </Slide>
     );
 
+    const webArSlide1 = (
+      <Slide>
+        <Heading size={6}>What is Augmented Reality (AR)?</Heading>
+        <Layout>
+          <Fill>
+            <Text textSize=".8em" margin="auto auto 5em auto">
+              Unlike virtual reality, which creates a totally artificial environment, augmented reality uses the existing environment and overlays new information on top of it.
+              <br />
+              <br />
+              <br />
+            </Text>
+
+            <Appear>
+              <Text textFont="monospace" textSize=".8em" margin="auto auto 5em auto">
+                It creates holograms on top of our reality!
+              </Text>
+            </Appear>
+          </Fill>
+          <Fill>
+            <Image width="90%" src={whatisar.glass1} margin="0 auto 0 auto" />
+            <Image width="90%" src={whatisar.glass2} margin="0 auto 0 auto" />
+          </Fill>
+        </Layout>
+      </Slide>
+    );
+
+    const webArSlide2 = (
+      <Slide>
+        <Heading size={6}>What is Augmented Reality (AR)?</Heading>
+        <Image width="90%" src={whatisar.hololens1} margin="0 auto 0 auto" />
+      </Slide>
+    );
+
+    const webArSlide3 = (
+      <Slide>
+        <Heading size={6}>Available AR solutions</Heading>
+        <Layout>
+          <Fill>
+            <Image width="90%" src={whatisar.arkit} margin="0 auto 0 auto" />
+          </Fill>
+          <Fill>
+            <Image width="90%" src={whatisar.arcore} margin="0 auto 0 auto" />
+          </Fill>
+        </Layout>
+      </Slide>
+    );
+
+    const webArSlide4 = (
+      <Slide>
+        <Heading size={6}>Calibration of AR</Heading>
+        <Layout>
+          <Fill>
+            <List textAlign="center">
+              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">Geometric calibration, camera (easy)</ListItem></Appear>
+              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">Photometric calibration, camera (hard)</ListItem></Appear>
+              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">IMU error removal (crazy hard)</ListItem></Appear>
+            </List>
+
+            <Appear>
+              <Text textFont="monospace" textSize=".8em" margin="auto auto 5em auto">
+                IMU = Inertial Measerung Unit (Trägheitsmesseinheit)
+              </Text>
+            </Appear>
+          </Fill>
+          <Fill>
+            <Image width="90%" src={whatisar.calibration1} margin="0 auto 0 auto" />
+            <Image width="90%" src={whatisar.calibration2} margin="0 auto 0 auto" />
+          </Fill>
+        </Layout>
+      </Slide>
+    );
+
+    const webArSlide5 = (
+      <Slide>
+        <Heading size={6}>Advanced features of AR</Heading>
+        <Layout>
+          <Fill>
+            <Image width="90%" src={whatisar.lightning} margin="0 auto 0 auto" />
+          </Fill>
+          <Fill>
+            <Image width="90%" src={whatisar.occlusion} margin="0 auto 0 auto" />
+          </Fill>
+        </Layout>
+      </Slide>
+    );
+
+    const webArSlide6 = (
+      <Slide>
+        <Heading size={6}>Advanced features of AR</Heading>
+        <Image width="90%" src={whatisar.illumination} margin="0 auto 0 auto" />
+      </Slide>
+    );
+
     const theEnd = (
       <Slide style={skylineBg}>
         <Appear><Heading size={1}>Fin</Heading></Appear>
@@ -552,6 +659,8 @@ export default class Presentation extends React.Component {
       >
         <Slide style={skylineBg}>
           <Image width="60%" src={images.logo} margin="0 auto 0 auto" />
+          <br/>
+          (and web AR)
         </Slide>
         {agendaSlide}
 
@@ -584,6 +693,13 @@ export default class Presentation extends React.Component {
         {advancedVRSlide5}
         {advancedVRSlide6}
         {advancedVRSlide7}
+
+        {webArSlide1}
+        {webArSlide2}
+        {webArSlide3}
+        {webArSlide4}
+        {webArSlide5}
+        {webArSlide6}
 
         {theEnd}
       </Deck>
