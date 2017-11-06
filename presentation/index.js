@@ -96,7 +96,8 @@ const whatisar = {
   arcore: require("../assets/ar/arcore.jpg"),
   lightning: require("../assets/ar/lightning.gif"),
   occlusion: require("../assets/ar/occlusion.gif"),
-  illumination: require("../assets/ar/illumination.gif")
+  illumination: require("../assets/ar/illumination.gif"),
+  arjs: require("../assets/ar/arjs.gif")
 };
 
 preloader(images);
@@ -586,7 +587,7 @@ export default class Presentation extends React.Component {
 
     const webArSlide3 = (
       <Slide>
-        <Heading size={6}>Available AR solutions</Heading>
+        <Heading size={6}>How AR works: Solutions</Heading>
         <Layout>
           <Fill>
             <Image width="90%" src={whatisar.arkit} margin="0 auto 0 auto" />
@@ -600,7 +601,7 @@ export default class Presentation extends React.Component {
 
     const webArSlide4 = (
       <Slide>
-        <Heading size={6}>Calibration of AR</Heading>
+        <Heading size={6}>How AR works: Understanding our reality</Heading>
         <Layout>
           <Fill>
             <List textAlign="center">
@@ -625,7 +626,7 @@ export default class Presentation extends React.Component {
 
     const webArSlide5 = (
       <Slide>
-        <Heading size={6}>Advanced features of AR</Heading>
+        <Heading size={6}>How AR works: Advanced features</Heading>
         <Layout>
           <Fill>
             <Image width="90%" src={whatisar.lightning} margin="0 auto 0 auto" />
@@ -639,8 +640,76 @@ export default class Presentation extends React.Component {
 
     const webArSlide6 = (
       <Slide>
-        <Heading size={6}>Advanced features of AR</Heading>
+        <Heading size={6}>How AR works: Advanced features</Heading>
         <Image width="90%" src={whatisar.illumination} margin="0 auto 0 auto" />
+      </Slide>
+    );
+
+    const webArSlide7 = (
+      <Slide>
+        <Heading size={6}>How AR works: WebAR</Heading>
+        <Text textFont="monospace" textSize="1.2em" margin="auto auto 5em auto" lineHeight="1.2em">
+          What is WebAR?
+        </Text>
+        <Text textSize=".8em" margin="auto auto 5em auto" lineHeight="1.2em">
+          AR is still bleeding edge technology and there is no standard for the web yet!
+        </Text>
+
+        <Appear>
+          <Text textFont="monospace" textSize="1.2em" margin="auto auto 5em auto" lineHeight="1.2em">
+            How do I experience WebAR?
+          </Text>
+        </Appear>
+        <Appear>
+          <Text textSize=".8em" margin="auto auto 5em auto" lineHeight="1.2em">
+            Experimental browser builds and a compatible device (smartphone, tablet)
+          </Text>
+        </Appear>
+        <Appear>
+          <Text textSize=".8em" margin="auto auto 5em auto" lineHeight="1.2em">
+            ..or just AR.js - no special browsers/apps needed!
+          </Text>
+        </Appear>
+        <br />
+        <br />
+        <Link href="https://developers.google.com/ar/develop/web/getting-started">→ ARCore - getting started on the web</Link><br />
+        <Link href="https://github.com/jeromeetienne/ar.js">→ AR.js</Link>
+      </Slide>
+    );
+
+    const webArSlide8 = (
+      <Slide>
+        <Heading size={6}>How AR works: AR.js</Heading>
+        <List textAlign="center" margin="2em 0 0 0">
+          <ListItem margin="0 0 1em 0">javascript version of ARToolkit</ListItem>
+          <ListItem margin="0 0 1em 0">based on C version of ARToolkit</ListItem>
+          <ListItem margin="0 0 1em 0">compiled to javascript with <Link href="https://github.com/kripken/emscripten">emscripten</Link></ListItem>
+          <ListItem margin="0 0 1em 0">3D with <Link href="https://aframe.io/">aframe.io</Link></ListItem>
+        </List>
+      </Slide>
+    );
+
+    const webArSlide9 = (
+      <CodeSlide
+        transition={["fade"]}
+        lang="js"
+        textSize=".6em"
+        code={require("raw-loader!../assets/code/arjs-index")}
+        ranges={[
+          { loc: [0, 18] },
+          { loc: [5, 18], title: "A basic aframe scene" },
+          { loc: [9, 12], title: "3D content inside our marker" },
+          { loc: [13, 15], title: "Link the camera" }
+        ]}
+      />
+    );
+
+    const webArSlide10 = (
+      <Slide>
+        <Heading size={6}>How AR works: AR.js</Heading>
+        <Image width="90%" src={whatisar.arjs} margin="0 auto 0 auto" /><br />
+        <Link href="https://jeromeetienne.github.io/AR.js/data/images/HIRO.jpg">HIRO</Link><br />
+        <Link href="https://jeromeetienne.github.io/AR.js/three.js/examples/mobile-performance.html">https://goo.gl/GQTqic</Link>
       </Slide>
     );
 
@@ -700,6 +769,10 @@ export default class Presentation extends React.Component {
         {webArSlide4}
         {webArSlide5}
         {webArSlide6}
+        {webArSlide7}
+        {webArSlide8}
+        {webArSlide9}
+        {webArSlide10}
 
         {theEnd}
       </Deck>
