@@ -97,7 +97,13 @@ const whatisar = {
   lightning: require("../assets/ar/lightning.gif"),
   occlusion: require("../assets/ar/occlusion.gif"),
   illumination: require("../assets/ar/illumination.gif"),
-  arjs: require("../assets/ar/arjs.gif")
+  arjs: require("../assets/ar/arjs.gif"),
+  ipxSensors: require("../assets/ar/iphone-x-sensors.jpg"),
+  ipxDots: require("../assets/ar/iphone-x-dots.gif")
+};
+
+const videos = {
+  odometry: require("file-loader!../assets/ar/visual-odometry.mp4")
 };
 
 preloader(images);
@@ -603,30 +609,61 @@ export default class Presentation extends React.Component {
 
     const webArSlide4 = (
       <Slide>
-        <Heading size={6}>How AR works: Understanding our reality</Heading>
+        <Heading size={6}>How AR works: 3D-scan our reality</Heading>
         <Layout>
           <Fill>
-            <List textAlign="center">
-              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">Geometric calibration, camera (easy)</ListItem></Appear>
-              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">Photometric calibration, camera (hard)</ListItem></Appear>
-              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">IMU error removal (crazy hard)</ListItem></Appear>
-            </List>
+            <Text textSize=".8em" margin="auto auto 5em auto" lineHeight="1.2em">
+              visual odometry is used in AR
+            </Text>
 
             <Appear>
-              <Text textFont="monospace" textSize=".8em" margin="auto auto 5em auto">
-                IMU = Inertial Measerung Unit (Trägheitsmesseinheit)
+              <BlockQuote>
+                <Quote style={{ fontSize: ".9em" }}>visual odometry is the process of determining the position and orientation of a robot by analyzing the associated camera images</Quote>
+                <Cite style={{ fontSize: ".8em", color: "white" }}>wikipedia</Cite>
+              </BlockQuote>
+            </Appear>
+
+            <Appear>
+              <Text textSize=".6em" margin="auto auto 5em auto" lineHeight="1.2em">
+                it generates "points of interest" in an image and analyzes the movement of them between several video frames
               </Text>
             </Appear>
           </Fill>
           <Fill>
-            <Image width="90%" src={whatisar.calibration1} margin="0 auto 0 auto" />
-            <Image width="90%" src={whatisar.calibration2} margin="0 auto 0 auto" />
+            <video controls style={{ width: "90%" }}>
+              <source src={videos.odometry} />
+            </video>
           </Fill>
         </Layout>
       </Slide>
     );
 
     const webArSlide5 = (
+      <Slide>
+        <Heading size={6}>How AR works: 3D-scan our reality</Heading>
+        <Layout>
+          <Fill>
+            <List textAlign="center">
+              <ListItem textSize="1em" margin="0 0 .5em 0">{"It's"} crazy hard with only one camera input</ListItem>
+              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">Can be improved by using the informations of {"IMU's"}</ListItem></Appear>
+              <Appear><ListItem textSize="1em" margin="0 0 .5em 0">Even better are more sensors (two cameras, depth camera, dot projection, better {"IMU's"})</ListItem></Appear>
+            </List>
+
+            <Appear>
+              <Text textFont="monospace" textSize=".8em" margin="auto auto 5em auto">
+                IMU = Inertial Measerung Unit (e.g. accelerometer and gyro)
+              </Text>
+            </Appear>
+          </Fill>
+          <Fill>
+            <Image width="90%" src={whatisar.ipxSensors} margin="0 auto 0 auto" />
+            <Image width="90%" src={whatisar.ipxDots} margin="0 auto 0 auto" />
+          </Fill>
+        </Layout>
+      </Slide>
+    );
+
+    const webArSlide6 = (
       <Slide>
         <Heading size={6}>How AR works: Advanced features</Heading>
         <Layout>
@@ -640,14 +677,14 @@ export default class Presentation extends React.Component {
       </Slide>
     );
 
-    const webArSlide6 = (
+    const webArSlide7 = (
       <Slide>
         <Heading size={6}>How AR works: Advanced features</Heading>
         <Image width="90%" src={whatisar.illumination} margin="0 auto 0 auto" />
       </Slide>
     );
 
-    const webArSlide7 = (
+    const webArSlide8 = (
       <Slide>
         <Heading size={6}>How AR works: WebAR</Heading>
         <Text textFont="monospace" textSize="1.2em" margin="auto auto 5em auto" lineHeight="1.2em">
@@ -679,7 +716,7 @@ export default class Presentation extends React.Component {
       </Slide>
     );
 
-    const webArSlide8 = (
+    const webArSlide9 = (
       <Slide>
         <Heading size={6}>How AR works: AR.js</Heading>
         <List textAlign="center" margin="2em 0 0 0">
@@ -691,7 +728,7 @@ export default class Presentation extends React.Component {
       </Slide>
     );
 
-    const webArSlide9 = (
+    const webArSlide10 = (
       <CodeSlide
         transition={["fade"]}
         lang="js"
@@ -706,7 +743,7 @@ export default class Presentation extends React.Component {
       />
     );
 
-    const webArSlide10 = (
+    const webArSlide11 = (
       <Slide>
         <Heading size={6}>How AR works: AR.js</Heading>
         <Image width="90%" src={whatisar.arjs} margin="0 auto 0 auto" /><br />
@@ -777,6 +814,7 @@ export default class Presentation extends React.Component {
         {webArSlide8}
         {webArSlide9}
         {webArSlide10}
+        {webArSlide11}
 
         {theEnd}
       </Deck>
