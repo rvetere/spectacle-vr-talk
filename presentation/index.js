@@ -402,7 +402,8 @@ export default class Presentation extends React.Component {
           { loc: [11, 34], title: "The render method" },
           { loc: [15, 16], title: "Panorama Image Background (Skybox)", note: "equirectangular images and videos are supported 💪" },
           { loc: [16, 30], title: "A 3D Text Object" },
-          { loc: [35, 36], title: "Finally register the app", note: "React Native is used internally to bundle everything 📦" }
+          { loc: [35, 36], title: "Finally register the app", note: "React Native is used internally to bundle everything 📦" },
+          { loc: [0, 36], title: "What is the output?" }
         ]}
       />
     );
@@ -519,7 +520,8 @@ export default class Presentation extends React.Component {
           { loc: [0, 12], title: "components/Cockpit.js" },
           { loc: [21, 40], title: "Placing the move-left, move-right buttons" },
           { loc: [40, 58] },
-          { loc: [60, 70], title: "Loading cockpit object + material" }
+          { loc: [60, 70], title: "Loading cockpit object + material" },
+          { loc: [0, 12], title: "What is the output?" }
         ]}
       />
     );
@@ -715,7 +717,7 @@ export default class Presentation extends React.Component {
 
     const theEnd = (
       <Slide style={skylineBg}>
-        <Appear><Heading size={1}>Fin</Heading></Appear>
+        <Appear><Heading size={1}>Questions?</Heading></Appear>
       </Slide>
     );
 
@@ -752,8 +754,10 @@ export default class Presentation extends React.Component {
 
         {reactVRSlide1}
         {reactVRSlide2}
+      {/*
         {reactVRSlide3}
         {reactVRSlide4}
+      */}
 
         {advancedVRSlide1}
         {advancedVRSlide2}
