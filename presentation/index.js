@@ -618,7 +618,7 @@ export default class Presentation extends React.Component {
 
             <Appear>
               <BlockQuote>
-                <Quote style={{ fontSize: ".9em" }}>visual odometry is the process of determining the position and orientation of a robot by analyzing the associated camera images</Quote>
+                <Quote style={{ fontSize: ".9em" }}>visual odometry is the process of determining the position and orientation of <strike>a robot</strike> an AR app by analyzing the associated camera images</Quote>
                 <Cite style={{ fontSize: ".8em", color: "white" }}>wikipedia</Cite>
               </BlockQuote>
             </Appear>
