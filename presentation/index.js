@@ -532,6 +532,15 @@ export default class Presentation extends React.Component {
       />
     );
 
+    const advancedVRSlide7b = (
+      <Slide>
+        <Heading size={6}>React VR: Demo!</Heading>
+        <Text textSize=".8em" margin="auto auto 5em auto">
+          {"What's"} the output?
+        </Text>
+      </Slide>
+    );
+
     const advancedVRSlide8 = (
       <CodeSlide
         transition={["fade"]}
@@ -666,14 +675,14 @@ export default class Presentation extends React.Component {
     const webArSlide6 = (
       <Slide>
         <Heading size={6}>How AR works: Advanced features</Heading>
-        <Layout>
-          <Fill>
-            <Image width="90%" src={whatisar.lightning} margin="0 auto 0 auto" />
-          </Fill>
-          <Fill>
-            <Image width="90%" src={whatisar.occlusion} margin="0 auto 0 auto" />
-          </Fill>
-        </Layout>
+        <Image width="60%" src={whatisar.lightning} margin="0 auto 0 auto" />
+      </Slide>
+    );
+
+    const webArSlide6b = (
+      <Slide>
+        <Heading size={6}>How AR works: Advanced features</Heading>
+        <Image width="90%" src={whatisar.illumination} margin="0 auto 0 auto" />
       </Slide>
     );
 
@@ -770,10 +779,11 @@ export default class Presentation extends React.Component {
           <br/>
           (and web AR)
         </Slide>
-        {agendaSlide}
 
         {whatIsVRSlide1}
+      {/*
         {whatIsVRSlide2}
+      */}
         {whatIsVRSlide3}
 
         {howVrWorks1}
@@ -785,8 +795,8 @@ export default class Presentation extends React.Component {
         {howVrWorks7}
     {/*
       {howVrWorks8}
+      {howVrWorks9}
     */}
-        {howVrWorks9}
         {howVrWorks10}
 
         {reactVRSlide1}
@@ -802,15 +812,20 @@ export default class Presentation extends React.Component {
         {advancedVRSlide4}
         {advancedVRSlide5}
         {advancedVRSlide6}
-        {advancedVRSlide7}
+        {advancedVRSlide7b}
 
         {webArSlide1}
         {webArSlide2}
         {webArSlide3}
         {webArSlide4}
+      {/*
         {webArSlide5}
+      */}
         {webArSlide6}
+        {webArSlide6b}
+      {/*
         {webArSlide7}
+      */}
         {webArSlide8}
         {webArSlide9}
         {webArSlide10}
